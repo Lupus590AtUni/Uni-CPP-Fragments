@@ -21,6 +21,7 @@ NA_MathsLib::~NA_MathsLib(void)
 
 float NA_MathsLib::dice(int bottom, int top)
 {
+	//https://answers.yahoo.com/question/index?qid=20100615173601AAMHzBy
 	return (rand() % ((top + 1) - bottom)) + bottom;//between bottom and top
 }
 
