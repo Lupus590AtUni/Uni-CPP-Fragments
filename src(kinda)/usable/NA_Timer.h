@@ -2,8 +2,8 @@
 class NA_Timer
 {
 private:
-	time_t duration;
-	time_t start;
+	int duration;
+	int start;
 public:
 	NA_Timer(void);
 	NA_Timer(int d);
