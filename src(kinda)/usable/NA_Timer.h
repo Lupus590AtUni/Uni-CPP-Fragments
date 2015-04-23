@@ -9,6 +9,7 @@ public:
 	NA_Timer(int d);
 	~NA_Timer(void);
 	void setDuration(int d);
-	bool elapsed();
+	bool hasElapsed();
+	void restart();
 };
 

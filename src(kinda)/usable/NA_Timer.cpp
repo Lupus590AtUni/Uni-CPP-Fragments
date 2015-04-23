@@ -23,7 +23,7 @@ void NA_Timer::setDuration(int d)
 	duration = d;
 }
 
-bool NA_Timer::elapsed()
+bool NA_Timer::hasElapsed()
 {
 	if(duration < difftime(time(NULL),start))
 		return true;
@@ -31,3 +31,7 @@ bool NA_Timer::elapsed()
 	return false;
 }
 
+void NA_Timer::restart()
+{
+	start = time(NULL);
+}
