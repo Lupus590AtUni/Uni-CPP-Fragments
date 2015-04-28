@@ -1,9 +1,10 @@
+#include "stdafx.h"
 #include "NA_MathsLib.h"
 #include <math.h>//used to generate lookup tables at start of program
 #include "NA_Vector.h"
 #include "NA_Matrix.h"
 #include <random>
-
+#include <time.h>
 
 const float NA_MathsLib::PI = 3.14f;//this is a stupic compiler rule in my opinion
 
@@ -11,11 +12,21 @@ NA_MathsLib maths;
 
 NA_MathsLib::NA_MathsLib(void)
 {
-	
 }
 
 NA_MathsLib::~NA_MathsLib(void)
 {
+}
+
+void NA_MathsLib::seedDice()
+{
+	//srand(time(NULL));
+	srand(0);
+}
+
+void NA_MathsLib::seedDice(unsigned int seed)
+{
+	srand(seed);
 }
 
 float NA_MathsLib::dice(int bottom, int top)
@@ -33,7 +44,6 @@ float NA_MathsLib::dice(int top)
 
 void NA_MathsLib::init()//fill the lookup tables
 {
-	
 	if(!NA_USE_OTHER_TRIG)
 	{
 		if(DEBUG) cout<<"Filling trig lookup tables\n";

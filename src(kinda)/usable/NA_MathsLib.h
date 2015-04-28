@@ -9,12 +9,17 @@ private:
 	static const int NA_M_LOOKUP_MAX = 1024;
 	static const int NA_M_LOOKUP_UNIT = 360/NA_M_LOOKUP_MAX;
 	
+	//could these be static?
 	float sinLookup[(int)NA_M_LOOKUP_MAX];
 	float cosLookup[(int)NA_M_LOOKUP_MAX];
 	float tanLookup[(int)NA_M_LOOKUP_MAX];
+
 	int degToLookupIndex(float);
 
 public:
+	void seedDice();
+	void seedDice(unsigned int seed);
+
 	static const float PI;//floats must be initialised in cpp
 	NA_MathsLib(void);
 	~NA_MathsLib(void);
