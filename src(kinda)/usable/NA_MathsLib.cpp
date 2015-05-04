@@ -75,7 +75,7 @@ float NA_MathsLib::sin(float d)
 {
 	if(NA_USE_OTHER_TRIG)
 	{
-		return sinf(d);
+		return sinf(degToRad(d));
 	}
 	else
 	{
@@ -86,7 +86,7 @@ float NA_MathsLib::cos(float d)
 {
 	if(NA_USE_OTHER_TRIG)
 	{
-		return cosf(d);
+		return cosf(degToRad(d));
 	}
 	else
 	{
@@ -97,7 +97,7 @@ float NA_MathsLib::tan(float d)
 {
 	if(NA_USE_OTHER_TRIG)
 	{
-		return tanf(d);
+		return tanf(degToRad(d));
 	}
 	else
 	{
