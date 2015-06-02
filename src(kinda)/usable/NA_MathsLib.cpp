@@ -5,12 +5,13 @@
 #include <random>
 #include <time.h>
 
-const float NA_MathsLib::PI = 3.14f;//this is a stupic compiler rule in my opinion
+const float NA_MathsLib::PI = 3.14f;//this is a stupid compiler rule in my opinion
 
-NA_MathsLib maths;
+NA_MathsLib maths; //contructs itself, access with extern NA_MathsLib maths;
 
 NA_MathsLib::NA_MathsLib(void)
 {
+  debug = false;
 }
 
 NA_MathsLib::~NA_MathsLib(void)
