@@ -19,8 +19,8 @@ NA_MathsLib::~NA_MathsLib(void)
 
 void NA_MathsLib::seedDice()
 {
-	//srand(time(NULL));
-	srand(0);
+	srand(time(NULL));
+	//srand(0); //use for testing
 }
 
 void NA_MathsLib::seedDice(unsigned int seed)
