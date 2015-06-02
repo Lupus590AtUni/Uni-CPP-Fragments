@@ -27,6 +27,7 @@ template <class _template> int NA_Queue<_template>::getSize(void)
 
 template <class _template>NA_Queue<_template>::NA_Queue(void)
 {
+  debug = false;
 	//queue starts as empty
 	queueHead=NULL;
 	queueTail=NULL;
