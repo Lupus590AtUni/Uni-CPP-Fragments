@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "NA_MathsLib.h"
 #include <math.h>//used to generate lookup tables at start of program
 #include "NA_Vector.h"
