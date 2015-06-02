@@ -4,6 +4,7 @@
 
 NA_Matrix::NA_Matrix(void)
 {
+  debug = false;
 	//make identity matrix
 	for(int i = 0; i<4;i++)
 	{

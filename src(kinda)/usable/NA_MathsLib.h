@@ -17,6 +17,7 @@ private:
 	int degToLookupIndex(float);
 
 public:
+  bool debug;
 	void seedDice();
 	void seedDice(unsigned int seed);
 

@@ -4,6 +4,7 @@
 template <class _template> class NA_Queue
 {
 public:
+  bool debug;
 	NA_Queue(void);
 	~NA_Queue(void);
 	//push and pop is a bit incorrect but allows me to template queues and stacks together, overusing templates?

@@ -4,6 +4,8 @@ class NA_Vector;
 class NA_Matrix
 {
 public:
+  bool debug;
+
 	float matrix[4][4];//was private but gets and sets slow things down
 
 	NA_Matrix(void);

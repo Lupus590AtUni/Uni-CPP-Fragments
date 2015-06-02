@@ -5,6 +5,7 @@ template <class _template> class NA_LinkedListNode //http://www.cprogramming.com
 private:
 //	bool isClass<class>();
 public:
+  bool debug;
 	NA_LinkedListNode(void);
 	~NA_LinkedListNode(void);
 
@@ -15,6 +16,7 @@ public:
 
 template <class _template>NA_LinkedListNode<_template>::NA_LinkedListNode(void)
 {
+  debug = false;
 	//value = NULL; //until compiled, the node doesn't know what type value will be, this causes an issue with initalising it. ideally I would put a pointer check to init it (like for the delete below) - an easy fix would be to have a bool which is set by the code using the object if the value is a pointer that will need to be deleted, sounds a bit messy...
 	next = NULL;
 }

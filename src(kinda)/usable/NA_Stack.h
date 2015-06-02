@@ -4,6 +4,7 @@
 template <class _template>class NA_Stack 
 {
 public:
+  bool debug;
 	~NA_Stack(void);
 	NA_Stack();
 	void push(_template);
@@ -24,6 +25,7 @@ template <class _template> int NA_Stack<_template>::getSize(void)
 
 template <class _template>NA_Stack<_template>::NA_Stack(void)
 {
+  debug = false;
 	stack=NULL;//stack starts as empty
 	size = 0;
 }

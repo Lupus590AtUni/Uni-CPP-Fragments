@@ -5,6 +5,7 @@
 	//construct
 NA_Vector::NA_Vector(void)
 {
+  debug = false;
 	x= 0;
 	y= 0;
 	z= 0;
@@ -12,6 +13,7 @@ NA_Vector::NA_Vector(void)
 }
 NA_Vector::NA_Vector(float myx, float myy, float myz, float myw)
 { 
+  debug = false;
 	x= myx;
 	y= myy;
 	z= myz;
