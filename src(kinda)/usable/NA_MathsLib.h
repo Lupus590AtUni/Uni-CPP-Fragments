@@ -26,8 +26,8 @@ public:
 	~NA_MathsLib(void);
 
 	//had to name dice as could not access randoms rand function if maths::rand was so named
-	float dice(int bottom, int top);
-	float dice(int top);
+	int dice(int bottom, int top);
+	int dice(int top);
 
 	void init();//fills the lookup tables
 	float degToRad(float);

@@ -29,15 +29,15 @@ void NA_MathsLib::seedDice(unsigned int seed)
 	srand(seed);
 }
 
-float NA_MathsLib::dice(int bottom, int top)
+int NA_MathsLib::dice(int bottom, int top)
 {
 	//https://answers.yahoo.com/question/index?qid=20100615173601AAMHzBy
-	return (rand() % ((top + 1) - bottom)) + bottom;//between bottom and top
+	return (rand() % ((top + 1) - bottom)) + bottom;//between bottom and top, inclusive
 }
 
-float NA_MathsLib::dice(int top)
+int NA_MathsLib::dice(int top)
 {
-	return (rand() % (top+1)); //between 0 and top
+	return (rand() % (top+1)); //between 0 and top, inclusive
 }
 
 
@@ -46,14 +46,14 @@ void NA_MathsLib::init()//fill the lookup tables
 {
 	if(!NA_USE_OTHER_TRIG)
 	{
-		if(DEBUG) cout<<"Filling trig lookup tables\n";
+		if(debug) cout<<"Filling trig lookup tables\n";
 		for(int i=0; i<NA_M_LOOKUP_MAX; i++)//walk through lookup table assigning values from math.h
 		{
 			sinLookup[(int)i] = (float) sinf(degToRad((float)i*NA_M_LOOKUP_UNIT));
 			cosLookup[(int)i] = (float) cosf(degToRad((float)i*NA_M_LOOKUP_UNIT));
 			tanLookup[(int)i] = (float) tanf(degToRad((float)i*NA_M_LOOKUP_UNIT));
 		}
-		if(DEBUG) cout<<"Filled lookup\n";
+		if(debug) cout<<"Filled lookup\n";
 	}
 }
 
