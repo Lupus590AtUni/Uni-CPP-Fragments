@@ -98,17 +98,17 @@ void error(const char* err)
 	if(errFile.is_open())	errFile<<err<<"\n";
 	if(DEBUG) cout<<err<<"\n";
 }
-//returns true if the two floats are within 0.001 of each other
-bool aboutEqual(float v1, float v2)
+//returns true if the two doubles are within 0.001 of each other
+bool aboutEqual(double v1, double v2)
 {
-	const float diff = 0.001f;
+	const double EPSILON = 0.001;
 	if (v1 > v2)
 	{
-		if( v1 - v2 < diff) return true;
+		if( v1 - v2 < EPSILON) return true;
 	}
 	else
 	{
-		if( v2 - v1 < diff) return true; //this returns true if they are exactly equal too, therefore a if(v1 == v2) statement is not required
+		if( v2 - v1 < EPSILON) return true; //this returns true if they are exactly equal too, therefore a if(v1 == v2) statement is not required
 	}
 	return false; //if this line is executed then the two values are not similar enough to be considered the same
 }
