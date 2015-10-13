@@ -7,20 +7,19 @@ public:
   bool debug;
 	NA_Queue(void);
 	~NA_Queue(void);
-	//push and pop is a bit incorrect but allows me to template queues and stacks together, overusing templates?
-	void push(_template);
-	_template pop(void);
+	void enqueue(_template);
+	_template dequeue(void);
 	_template peak(void);
 	bool isEmpty(void);
-	int getSize();
+	unsigned int getSize();
 private:
-	int size;
+	unsigned int size;
 	NA_LinkedListNode<_template>* queueHead;
 	NA_LinkedListNode<_template>* queueTail;//more work to maintain a pointer to the end of the queue
 							  //but it means that we don't have to loop to get to the end of it when we want to add something
 };
 
-template <class _template> int NA_Queue<_template>::getSize(void)
+template <class _template> unsigned int NA_Queue<_template>::getSize(void)
 {
 	return size;
 }
@@ -53,7 +52,7 @@ template <class _template>bool NA_Queue<_template>::isEmpty(void)
 		return false;
 }
 
-template <class _template> void NA_Queue<_template>::push(_template x)
+template <class _template> void NA_Queue<_template>::enqueue(_template x)
 {
 	NA_LinkedListNode<_template>* temp = new NA_LinkedListNode<_template>();//create a new node to store the added value
 	temp->value = x;//put the value in the node
@@ -70,7 +69,7 @@ template <class _template> void NA_Queue<_template>::push(_template x)
 	size++;
 }
 
-template <class _template> _template NA_Queue<_template>::pop(void)
+template <class _template> _template NA_Queue<_template>::dequeue(void)
 {
 	_template returnVar = queueHead->value; //get value from queue
 	NA_LinkedListNode<_template>* _queue = queueHead; //we will need to delete this later

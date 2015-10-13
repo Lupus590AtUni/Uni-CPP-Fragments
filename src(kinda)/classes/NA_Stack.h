@@ -11,13 +11,13 @@ public:
 	_template pop(void);
 	_template peak(void);
 	bool isEmpty(void);
-	int getSize(void);
+	unsigned int getSize(void);
 private:
-	int size;
+	unsigned int size;
 	NA_LinkedListNode<_template>* stack;
 };
 
-template <class _template> int NA_Stack<_template>::getSize(void)
+template <class _template> unsigned int NA_Stack<_template>::getSize(void)
 {
 	return size;
 }
