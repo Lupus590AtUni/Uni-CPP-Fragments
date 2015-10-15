@@ -1,5 +1,5 @@
 #include "NA_MathsLib.h"
-#include <math.h>//used to generate lookup tables at start of program
+#include <math.h>//used to generate lookup tables when object is constructed
 #include "NA_Vector.h"
 #include "NA_Matrix.h"
 #include <random>
@@ -27,6 +27,8 @@ NA_MathsLib::~NA_MathsLib(void)
 {
 }
 
+#pragma region dice
+
 void NA_MathsLib::seedDice()
 {
 	srand(time(NULL));
@@ -48,6 +50,10 @@ int NA_MathsLib::dice(int top)
 {
 	return (rand() % (top+1)); //between 0 and top, inclusive
 }
+
+#pragma endregion
+
+#pragma region trig
 
 float NA_MathsLib::degToRad(float d)
 {
@@ -98,6 +104,9 @@ float NA_MathsLib::tan(float d)
 	}
 }
 
+#pragma endregion
+
+#pragma region matrix
 
 NA_Matrix* NA_MathsLib::getIDMatrix()
 {
@@ -192,3 +201,5 @@ NA_Matrix* NA_MathsLib::getShearZMatrix(float s)
 	temp->matrix[2][2] = s;
 	return temp;
 }
+
+#pragma endregion
