@@ -48,9 +48,9 @@ void NA_Vector::normalise(void)
 float NA_Vector::dist(NA_Vector & v1)
 {
 	float xCom, yCom, zCom = 0;
-	xCom = this->x - v1.x;
-	yCom = this->y - v1.y;
-	zCom = this->z - v1.z;
+	xCom = x - v1.x;
+	yCom = y - v1.y;
+	zCom = z - v1.z;
 	return sqrt(xCom*xCom + yCom*yCom + zCom*zCom);
 }
 
@@ -61,40 +61,3 @@ void NA_Vector::correctW()
 	z = z/w;
 	w = 1.0f;
 }
-
-
-#pragma region DEPRECATED
-float NA_Vector::getX(void)
-{
-	return x;
-}
-float NA_Vector::getY(void)
-{
-	return y;
-}
-float NA_Vector::getZ(void)
-{
-	return z;
-}
-float NA_Vector::getW(void)
-{
-	return w;
-}
-
-void NA_Vector::setX(float newX)
-{
-	x = newX;
-}
-void NA_Vector::setY(float newY)
-{
-	y = newY;
-}
-void NA_Vector::setZ(float newZ)
-{
-	z = newZ;
-}
-void NA_Vector::setW(float newW)
-{
-	w = newW;
-}
-#pragma endregion DEPRECATED

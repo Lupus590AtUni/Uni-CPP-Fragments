@@ -25,46 +25,35 @@ NA_Matrix::~NA_Matrix(void)
 {
 }
 
-#pragma region DEPRECATED
 
-void NA_Matrix::set(int x, int y, float f)
-{
-	matrix[x][y] = f;
-}
 
-float NA_Matrix::get(int x, int y)
+NA_Matrix NA_Matrix::matrixXmatrix(NA_Matrix m)
 {
-	return matrix[x][y];
-}
-#pragma endregion DEPRECATED
-
-NA_Matrix* NA_Matrix::matrixXmatrix(NA_Matrix* m)
-{
-	NA_Matrix* temp = new NA_Matrix;
+	NA_Matrix temp;
 	for(int i = 0; i<4;i++)
 	{
 		for(int j = 0; j<4;j++)
 		{
 			float t;
-			t = m->matrix[j][i]*matrix[i][j]+m->matrix[j][i]*matrix[i][j]+m->matrix[j][i]+matrix[i][j]+m->matrix[j][i]+matrix[i][j];
-			temp->matrix[i][j] = t;
+			t = m.matrix[j][i]*matrix[i][j]+m.matrix[j][i]*matrix[i][j]+m.matrix[j][i]+matrix[i][j]+m.matrix[j][i]+matrix[i][j];
+			temp.matrix[i][j] = t;
 		}
 	}
-	temp->correctW();
+	temp.correctW();
 	return temp;
 }
 
-NA_Vector* NA_Matrix::matrixXvector(NA_Vector* v)
+NA_Vector NA_Matrix::matrixXvector(NA_Vector v)
 {
 	float tX,tY,tZ,tW;//what a lot of temporary variables
 
-	tX = v->x*matrix[0][0]+v->y*matrix[0][1]+v->z*matrix[0][2]+v->w*matrix[0][3];
-	tY = v->x*matrix[1][0]+v->y*matrix[1][1]+v->z*matrix[1][2]+v->w*matrix[1][3];
-	tZ = v->x*matrix[2][0]+v->y*matrix[2][1]+v->z*matrix[2][2]+v->w*matrix[2][3];
-	tW = v->x*matrix[3][0]+v->y*matrix[3][1]+v->z*matrix[3][2]+v->w*matrix[3][3];
+	tX = v.x*matrix[0][0]+v.y*matrix[0][1]+v.z*matrix[0][2]+v.w*matrix[0][3];
+	tY = v.x*matrix[1][0]+v.y*matrix[1][1]+v.z*matrix[1][2]+v.w*matrix[1][3];
+	tZ = v.x*matrix[2][0]+v.y*matrix[2][1]+v.z*matrix[2][2]+v.w*matrix[2][3];
+	tW = v.x*matrix[3][0]+v.y*matrix[3][1]+v.z*matrix[3][2]+v.w*matrix[3][3];
 
-	NA_Vector* temp = new NA_Vector(tX,tY,tZ,tW);
-	temp->correctW();
+	NA_Vector temp(tX,tY,tZ,tW);
+	temp.correctW();
 	return temp;
 }
 

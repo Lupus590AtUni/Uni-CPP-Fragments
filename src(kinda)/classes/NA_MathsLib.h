@@ -37,17 +37,17 @@ public:
 
 
 	//need to rename these, get is misleading, generate/make would be better
-	NA_Matrix* getIDMatrix();
-	NA_Matrix* getTranslateMatrix(NA_Vector*);
-	NA_Matrix* getTranslateMatrix(float,float,float);
-	NA_Matrix* getScaleMatrix(float);
+	NA_Matrix getIDMatrix();
+	NA_Matrix getTranslateMatrix(NA_Vector);
+	NA_Matrix getTranslateMatrix(float,float,float);
+	NA_Matrix getScaleMatrix(float);
 
-	NA_Matrix* getRotateXMatrix(float);
-	NA_Matrix* getRotateYMatrix(float);
-	NA_Matrix* getRotateZMatrix(float);
+	NA_Matrix getRotateXMatrix(float);
+	NA_Matrix getRotateYMatrix(float);
+	NA_Matrix getRotateZMatrix(float);
 	
-	NA_Matrix* getShearXMatrix(float);
-	NA_Matrix* getShearYMatrix(float);
-	NA_Matrix* getShearZMatrix(float);
+	NA_Matrix getShearXMatrix(float);
+	NA_Matrix getShearYMatrix(float);
+	NA_Matrix getShearZMatrix(float);
 };
 

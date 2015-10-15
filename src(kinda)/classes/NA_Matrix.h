@@ -11,10 +11,8 @@ public:
 	NA_Matrix(void);
 	~NA_Matrix(void);
 
-	DEPRECATED(void set(int, int, float));
-	DEPRECATED(float get(int, int));
 	void correctW();
-	NA_Matrix* matrixXmatrix(NA_Matrix*);
-	NA_Vector* matrixXvector(NA_Vector*);
+	NA_Matrix matrixXmatrix(NA_Matrix);
+	NA_Vector matrixXvector(NA_Vector);
 };
 

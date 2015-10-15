@@ -13,14 +13,6 @@ public:
 	void Scale(float s);
 	void Add(NA_Vector & v1);
 	void normalise(void);
-	DEPRECATED(float getX(void));
-	DEPRECATED(float getY(void));
-	DEPRECATED(float getZ(void));
-	DEPRECATED(float getW(void));
-	DEPRECATED(void setX(float));
-	DEPRECATED(void setY(float));
-	DEPRECATED(void setZ(float));
-	DEPRECATED(void setW(float));
 	float dist(NA_Vector & v1);
 	void correctW();
 
