@@ -12,6 +12,15 @@ NA_MathsLib maths; //contructs itself, access with extern NA_MathsLib maths;
 NA_MathsLib::NA_MathsLib(void)
 {
   debug = false;
+  if(!NA_USE_OTHER_TRIG)
+	{
+		for(int i=0; i<NA_M_LOOKUP_MAX; i++)//walk through lookup table assigning values from math.h
+		{
+			sinLookup[(int)i] = (float) sinf(degToRad((float)i*NA_M_LOOKUP_UNIT));
+			cosLookup[(int)i] = (float) cosf(degToRad((float)i*NA_M_LOOKUP_UNIT));
+			tanLookup[(int)i] = (float) tanf(degToRad((float)i*NA_M_LOOKUP_UNIT));
+		}
+	}
 }
 
 NA_MathsLib::~NA_MathsLib(void)
@@ -40,27 +49,11 @@ int NA_MathsLib::dice(int top)
 	return (rand() % (top+1)); //between 0 and top, inclusive
 }
 
-
-
-void NA_MathsLib::init()//fill the lookup tables
-{
-	if(!NA_USE_OTHER_TRIG)
-	{
-		if(debug) cout<<"Filling trig lookup tables\n";
-		for(int i=0; i<NA_M_LOOKUP_MAX; i++)//walk through lookup table assigning values from math.h
-		{
-			sinLookup[(int)i] = (float) sinf(degToRad((float)i*NA_M_LOOKUP_UNIT));
-			cosLookup[(int)i] = (float) cosf(degToRad((float)i*NA_M_LOOKUP_UNIT));
-			tanLookup[(int)i] = (float) tanf(degToRad((float)i*NA_M_LOOKUP_UNIT));
-		}
-		if(debug) cout<<"Filled lookup\n";
-	}
-}
-
 float NA_MathsLib::degToRad(float d)
 {
 	return (PI*d)/180;
 }
+
 float NA_MathsLib::radToDeg(float r)
 {
 	return (r*180)/PI;
@@ -101,7 +94,7 @@ float NA_MathsLib::tan(float d)
 	}
 	else
 	{
-    return tanLookup[degToLookupIndex(d)];
+		return tanLookup[degToLookupIndex(d)];
 	}
 }
 

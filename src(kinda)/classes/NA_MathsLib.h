@@ -29,7 +29,6 @@ public:
 	int dice(int bottom, int top);
 	int dice(int top);
 
-	void init();//fills the lookup tables
 	float degToRad(float);
 	float radToDeg(float);
 	float sin(float);
