@@ -101,7 +101,7 @@ float NA_MathsLib::tan(float d)
 	}
 	else
 	{
-	return tanLookup[degToLookupIndex(d)];
+    return tanLookup[degToLookupIndex(d)];
 	}
 }
 
