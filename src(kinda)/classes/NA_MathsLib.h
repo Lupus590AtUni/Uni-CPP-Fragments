@@ -49,5 +49,9 @@ public:
 	NA_Matrix getShearXMatrix(float);
 	NA_Matrix getShearYMatrix(float);
 	NA_Matrix getShearZMatrix(float);
+
+	//returns true if the two floats are within 0.001 of each other
+	bool aboutEqual(float v1, float v2);
+	bool aboutEqual(float v1, float v2, float epsilon);
 };
 
