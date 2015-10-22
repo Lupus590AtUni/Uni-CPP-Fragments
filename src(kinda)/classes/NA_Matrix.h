@@ -12,7 +12,8 @@ public:
 	~NA_Matrix(void);
 
 	void correctW();
-	NA_Matrix matrixXmatrix(NA_Matrix);
-	NA_Vector matrixXvector(NA_Vector);
+	NA_Matrix transpose();//inverse
+	NA_Matrix matrixXmatrix(NA_Matrix);//TODO make operand version
+	NA_Vector matrixXvector(NA_Vector);//TODO make operand version
 };
 

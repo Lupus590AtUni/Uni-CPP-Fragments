@@ -25,6 +25,18 @@ NA_Matrix::~NA_Matrix(void)
 {
 }
 
+NA_Matrix NA_Matrix::transpose()
+{
+	NA_Matrix temp;
+	for(int i = 0; i<4; i++)
+	{
+		for(int j = 0; j<4; j++)
+		{
+			temp.matrix[i][j] = matrix[j][i];
+		}
+	}
+	return temp;
+}
 
 
 NA_Matrix NA_Matrix::matrixXmatrix(NA_Matrix m)
