@@ -79,5 +79,5 @@ void NA_Matrix::correctW()
 		}
 	}
 	
-	matrix[3][3] = 1.0f;
+	//matrix[3][3] = 1.0f;//I do this in the loop already
 }
