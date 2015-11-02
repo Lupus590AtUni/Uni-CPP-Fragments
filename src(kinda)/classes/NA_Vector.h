@@ -6,8 +6,9 @@ class NA_Matrix;
 
 class NA_Vector
 {
+private:
+  static const bool DEBUG = false;
 public:
-  bool debug;
 
 	//construct
   NA_Vector(NA_Vector v);
@@ -18,7 +19,7 @@ public:
 	void normalise(void);
 	float dist(NA_Vector & v1);
 	void correctW();
-  NA_Vector vectorXmatrix(NA_Matrix);//TODO make operand version - move to vector class
+  NA_Vector vectorXmatrix(NA_Matrix);//TODO make operand version
 
 	//were private, but gets and sets slowdown realtime systems (such as games)
 	float x;

@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 using std::string;
-template<class _template> class NA_Return
+template<class _template> class NA_Return//this should be a struct
 {
 
 public:

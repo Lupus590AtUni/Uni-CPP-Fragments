@@ -11,7 +11,6 @@ NA_MathsLib maths; //contructs itself, access with extern NA_MathsLib maths;
 
 NA_MathsLib::NA_MathsLib(void)
 {
-  debug = false;
   if(!NA_USE_OTHER_TRIG)
 	{
 		for(int i=0; i<NA_M_LOOKUP_MAX; i++)//walk through lookup table assigning values from math.h
