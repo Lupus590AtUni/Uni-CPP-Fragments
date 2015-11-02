@@ -4,14 +4,12 @@
 
 NA_Timer::NA_Timer(void)
 {
-  debug = false;
 	duration = 0;
 	start = time(NULL);
 }
 
 NA_Timer::NA_Timer(int d)
 {
-  debug = false;
 	duration = d;
 	start = time(NULL);
 }

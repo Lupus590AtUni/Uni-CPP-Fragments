@@ -4,7 +4,6 @@
 template <class _template> class NA_Queue
 {
 public:
-  bool debug;
 	NA_Queue(void);
 	~NA_Queue(void);
 	void enqueue(_template);
@@ -13,6 +12,7 @@ public:
 	bool isEmpty(void);
 	unsigned int getSize();
 private:
+  static const bool DEBUG = false;
 	unsigned int size;
 	NA_LinkedListNode<_template>* queueHead;
 	NA_LinkedListNode<_template>* queueTail;//more work to maintain a pointer to the end of the queue

@@ -3,8 +3,12 @@
 class NA_Vector;
 class NA_Matrix;
 class NA_MathsLib
+
+//TODO: sqrt lookup
 {
 private:
+  static const bool DEBUG = false;
+  
 	static const bool  NA_USE_OTHER_TRIG = false; //if true use math.h trig when own is called (don't use lookup)
 	static const int NA_M_LOOKUP_MAX = 1024;
 	static const int NA_M_LOOKUP_UNIT = 360/NA_M_LOOKUP_MAX;
@@ -17,7 +21,6 @@ private:
 	int degToLookupIndex(float);
 
 public:
-  bool debug;
 	void seedDice();
 	void seedDice(unsigned int seed);
 

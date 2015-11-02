@@ -4,7 +4,6 @@
 template <class _template>class NA_Stack 
 {
 public:
-  bool debug;
 	~NA_Stack(void);
 	NA_Stack();
 	void push(_template);
@@ -13,6 +12,7 @@ public:
 	bool isEmpty(void);
 	unsigned int getSize(void);
 private:
+  static const bool DEBUG = false;
 	unsigned int size;
 	NA_LinkedListNode<_template>* stack;
 };

@@ -3,9 +3,9 @@
 template <class _template> class NA_LinkedListNode //http://www.cprogramming.com/tutorial/templates.html
 {
 private:
-//	bool isClass<class>();
+  static const bool DEBUG = false;
 public:
-  bool debug;
+
 	NA_LinkedListNode(void);
 	~NA_LinkedListNode(void);
 
