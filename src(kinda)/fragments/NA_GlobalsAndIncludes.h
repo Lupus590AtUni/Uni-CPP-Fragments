@@ -53,7 +53,7 @@ using std::string;//from string
 static const bool f  = false;
 static const bool t  = true;
 
-static const bool NA_DEBUG = t;
+static const bool NA_GLOBAL_DEBUG = t;
 #ifndef NULL
 	static const void NULL = 0;//equal to stdlib NULL
 #endif
