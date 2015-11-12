@@ -1,5 +1,3 @@
-//TODO: ORGANISE!
-
 //global variables and includes that I use in a lot of my projects
 #pragma once
 
@@ -49,7 +47,11 @@ using std::string;//from string
 //constants that I use
 #pragma region constants
 
-static const bool NA_GLOBAL_DEBUG = false;
+//because I tend to change bools alot
+static const bool f  = false;
+static const bool t  = true;
+
+static const bool NA_DEBUG = t;
 #ifndef NULL
 	static const void NULL = 0;//equal to stdlib NULL
 #endif
@@ -57,3 +59,60 @@ static const bool NA_GLOBAL_DEBUG = false;
 
 
 #pragma endregion constants
+
+//all this below should be a class, but I'm lazy and don't need this yet - thought it may be useful eventually
+#pragma region function declare
+
+//bool init();
+//bool cleanUp();
+//void error(const char* err);
+
+//bool aboutEqual(float v1, float v2);
+
+#pragma endregion function declare
+
+//abit bad practice to have full functions in a header, but I'm not makeing a cpp file for these until it's actually worth doing
+//maybe i should make this a cpp file, the functions and ofstream errFile caused a bunch of linker errors, keeping them here for copy paste
+//because of the link error, everything below needs to be moved to main.cpp (or any cpp) if they are to be used
+//ofstream errFile; //if this was in a class this would be private
+#pragma region useful functions
+//file stuff recaped from http://www.cplusplus.com/doc/tutorial/files/
+
+/*
+
+bool init()
+{
+	errFile.open("Error.log", std::ios::trunc);
+	return errFile.is_open();
+}
+
+bool cleanUp()
+{
+	if(errFile.is_open())	errFile.close();
+	return !errFile.is_open();
+}
+
+//writes errors to Error.log
+void error(const char* err)
+{
+	if(errFile.is_open())	errFile<<err<<"\n";
+	if(DEBUG) cout<<err<<"\n";
+}
+//returns true if the two doubles are within 0.001 of each other
+bool aboutEqual(double v1, double v2)
+{
+	const double EPSILON = 0.001;
+	if (v1 > v2)
+	{
+		if( v1 - v2 < EPSILON) return true;
+	}
+	else
+	{
+		if( v2 - v1 < EPSILON) return true; //this returns true if they are exactly equal too, therefore a if(v1 == v2) statement is not required
+	}
+	return false; //if this line is executed then the two values are not similar enough to be considered the same
+}
+
+*/
+
+#pragma endregion useful functions

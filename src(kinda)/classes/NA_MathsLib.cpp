@@ -2,6 +2,7 @@
 #include <math.h>//used to generate lookup tables when object is constructed
 #include "NA_Vector.h"
 #include "NA_Matrix.h"
+#include "stdafx.h"
 #include <random>
 #include <time.h>
 
@@ -11,6 +12,7 @@ NA_MathsLib maths; //contructs itself, access with extern NA_MathsLib maths;
 
 NA_MathsLib::NA_MathsLib(void)
 {
+  debug = false;
   if(!NA_USE_OTHER_TRIG)
 	{
 		for(int i=0; i<NA_M_LOOKUP_MAX; i++)//walk through lookup table assigning values from math.h

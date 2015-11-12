@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 using std::string;
-template<class _template> class NA_Return//this should be a struct
+template<class _template> class NA_Return//this should be a struct (can I template a struct? do I need to, things could define their own return struct)
 {
 
 public:

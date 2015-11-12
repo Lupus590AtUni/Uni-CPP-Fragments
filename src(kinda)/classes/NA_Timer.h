@@ -1,4 +1,5 @@
 #pragma once
+
 class NA_Timer
 {
 private:
