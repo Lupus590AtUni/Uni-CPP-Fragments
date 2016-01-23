@@ -35,9 +35,13 @@ template <class _template>NA_Queue<_template>::NA_Queue(void)
 
 template <class _template>NA_Queue<_template>::~NA_Queue(void)
 {
-	if(size>0)//if there are items on the stack then we need to empty it
+	while(!isEmpty())//if there are items on the stack then we need to empty it
 	{
-		delete queueHead;
+		NA_LinkedListNode<_template>* _queue = queueHead; //we will need to delete this later
+    queueHead = queueHead->next;//move the 2nd item to the front of the queue
+    _queue->next = NULL; //disconnect bottom of node from queue
+    delete _queue; //delete the removed node
+    size--;
 	}
 	queueHead=NULL;
 	queueTail=NULL;

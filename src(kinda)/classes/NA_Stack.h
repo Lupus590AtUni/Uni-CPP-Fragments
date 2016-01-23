@@ -32,9 +32,13 @@ template <class _template>NA_Stack<_template>::NA_Stack(void)
 
 template <class _template>NA_Stack<_template>::~NA_Stack(void)
 {
-	if(!isEmpty())//if there are items on the stack then we need to empty it
+	while(!isEmpty())//if there are items on the stack then we need to empty it
 	{
-		delete stack;
+		NA_LinkedListNode<_template>* _stack = stack; //we will need to delete this later
+    stack = stack->next;//move the 2nd item to the top of the stack
+    _stack->next = NULL; //disconnect bottom of node from stack
+    delete _stack; //delete the removed node
+    size--;
 	}
 	stack=NULL;
 	size=0;
