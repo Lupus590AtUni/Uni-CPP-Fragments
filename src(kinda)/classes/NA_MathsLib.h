@@ -5,7 +5,6 @@ class NA_Matrix;
 class NA_MathsLib
 {
 private:
-	static const bool  NA_USE_OTHER_TRIG = false; //if true use math.h trig when own is called (don't use lookup)
 	static const int NA_M_LOOKUP_MAX = 1024;
 	static const int NA_M_LOOKUP_UNIT = 360/NA_M_LOOKUP_MAX;
 	

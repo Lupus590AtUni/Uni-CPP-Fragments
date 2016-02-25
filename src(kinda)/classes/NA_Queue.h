@@ -12,7 +12,6 @@ public:
 	bool isEmpty(void);
 	unsigned int getSize();
 private:
-  static const bool DEBUG = false;
 	unsigned int size;
 	NA_LinkedListNode<_template>* queueHead;
 	NA_LinkedListNode<_template>* queueTail;//more work to maintain a pointer to the end of the queue
@@ -26,7 +25,6 @@ template <class _template> unsigned int NA_Queue<_template>::getSize(void)
 
 template <class _template>NA_Queue<_template>::NA_Queue(void)
 {
-  debug = false;
 	//queue starts as empty
 	queueHead=NULL;
 	queueTail=NULL;

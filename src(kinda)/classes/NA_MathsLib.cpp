@@ -12,16 +12,14 @@ NA_MathsLib maths; //contructs itself, access with extern NA_MathsLib maths;
 
 NA_MathsLib::NA_MathsLib(void)
 {
-  debug = false;
-  if(!NA_USE_OTHER_TRIG)
-	{
-		for(int i=0; i<NA_M_LOOKUP_MAX; i++)//walk through lookup table assigning values from math.h
-		{
-			sinLookup[(int)i] = (float) sinf(degToRad((float)i*NA_M_LOOKUP_UNIT));
-			cosLookup[(int)i] = (float) cosf(degToRad((float)i*NA_M_LOOKUP_UNIT));
-			tanLookup[(int)i] = (float) tanf(degToRad((float)i*NA_M_LOOKUP_UNIT));
-		}
-	}
+
+  for(int i=0; i<NA_M_LOOKUP_MAX; i++)//walk through lookup table assigning values from math.h
+  {
+    sinLookup[(int)i] = (float) sinf(degToRad((float)i*NA_M_LOOKUP_UNIT));
+    cosLookup[(int)i] = (float) cosf(degToRad((float)i*NA_M_LOOKUP_UNIT));
+    tanLookup[(int)i] = (float) tanf(degToRad((float)i*NA_M_LOOKUP_UNIT));
+  }
+
 }
 
 NA_MathsLib::~NA_MathsLib(void)
@@ -30,13 +28,9 @@ NA_MathsLib::~NA_MathsLib(void)
 
 #pragma region dice
 
-void NA_MathsLib::seedDice()
-{
-	srand(time(NULL));
-	//srand(0); //use for testing
-}
 
-void NA_MathsLib::seedDice(unsigned int seed)
+
+void NA_MathsLib::seedDice(unsigned int seed = time(NULL))
 {
 	srand(seed);
 }
@@ -73,36 +67,15 @@ int NA_MathsLib::degToLookupIndex(float d)
 
 float NA_MathsLib::sin(float d)
 {
-	if(NA_USE_OTHER_TRIG)
-	{
-		return sinf(degToRad(d));
-	}
-	else
-	{
-		return sinLookup[degToLookupIndex(d)];
-	}
+	return sinLookup[degToLookupIndex(d)];
 }
 float NA_MathsLib::cos(float d)
 {
-	if(NA_USE_OTHER_TRIG)
-	{
-		return cosf(degToRad(d));
-	}
-	else
-	{
-		return cosLookup[degToLookupIndex(d)];
-	}
+	return cosLookup[degToLookupIndex(d)];
 }
 float NA_MathsLib::tan(float d)
 {
-	if(NA_USE_OTHER_TRIG)
-	{
-		return tanf(degToRad(d));
-	}
-	else
-	{
-		return tanLookup[degToLookupIndex(d)];
-	}
+	return tanLookup[degToLookupIndex(d)];
 }
 
 #pragma endregion

@@ -12,7 +12,6 @@ public:
 	bool isEmpty(void);
 	unsigned int getSize(void);
 private:
-  static const bool DEBUG = false;
 	unsigned int size;
 	NA_LinkedListNode<_template>* stack;
 };
@@ -25,7 +24,6 @@ template <class _template> unsigned int NA_Stack<_template>::getSize(void)
 
 template <class _template>NA_Stack<_template>::NA_Stack(void)
 {
-  debug = false;
 	stack=NULL;//stack starts as empty
 	size = 0;
 }

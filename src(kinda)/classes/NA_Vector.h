@@ -5,7 +5,6 @@ class NA_Vector
 
 {
 public:
-  bool debug;
 
 	//construct
 	NA_Vector(float x, float y, float z, float w);

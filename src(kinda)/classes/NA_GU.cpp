@@ -23,7 +23,6 @@ void NA_GU::n_ds(const NA_Pixel start, const NA_Pixel end)
 	if ((start.position.x-end.position.x)==0) return; //this error escape should not need to run
 	m = (start.position.y-end.position.y)/(start.position.x-end.position.x);
 	int c = start.position.y-m*start.position.x;
-	if(DEBUG) cout<<"m: "<<m<<"\n";
 
 	//increment along x
 	for (int x =start.position.x; x<end.position.x;x++)
@@ -31,7 +30,6 @@ void NA_GU::n_ds(const NA_Pixel start, const NA_Pixel end)
 		float y=m*x+c;
 		y = y+0.5f;
 		graphics.drawPixel(x, (int) y);
-		if (DEBUG) cout<<"start.position.x "<<start.position.x<<", start.position.y "<<start.position.y<<", end.position.x "<<end.position.x<<", end.position.y "<<end.position.y<<", x "<<x<<", "<<(int)y<<"\n";
 	}
 }
 
@@ -43,10 +41,6 @@ void NA_GU::n_vertical(const NA_Pixel start, const NA_Pixel end)
 		for (int y =start.position.y; y<end.position.y;y++)
 		{
 			graphics.drawPixel(start.position.x, y);
-			if (DEBUG)
-			{
-				cout<<"0,"<<y<<"\n";
-			}
 		}
 	}
 	else
@@ -54,10 +48,6 @@ void NA_GU::n_vertical(const NA_Pixel start, const NA_Pixel end)
 		for (int y =end.position.y; y<start.position.y;y++)
 		{
 			graphics.drawPixel(end.position.x, y);
-			if (DEBUG)
-			{
-				cout<<"0,"<<y<<"\n";
-			}
 		}
 	}
 }
@@ -89,16 +79,7 @@ void NA_GU::n_dda(const NA_Pixel start, const NA_Pixel end)
 	if ((start.position.x-end.position.x)==0) return; //this error escape should not need to run
 	m = (start.position.y-end.position.y)/(start.position.x-end.position.x);
 	int c = start.position.y-m*start.position.x;
-	if(DEBUG) 
-		if (m<0) 
-		{
-			cout<<"***M < 0: "<<"start.position.x "<<start.position.x<<", start.position.y "<<start.position.y<<", end.position.x "<<end.position.x<<", end.position.y "<<end.position.y<<", m "<<m<<"\n";
-		}
-		else
-		{
-			cout<<"M!<0\n";
-		}
-	if(m>1)//the improvement of DDA over DS is the conditional ntergrate along y
+	if(m>1)//the improvement of DDA over DS is the conditional intergrate along y
 	{
 		//increment along y
 		for (int y =start.position.y; y<end.position.y;y++)
@@ -106,7 +87,6 @@ void NA_GU::n_dda(const NA_Pixel start, const NA_Pixel end)
 			float x=(y-c)/m;
 			x = x+0.5f;
 			graphics.drawPixel((int)x,y);
-			if (DEBUG) cout<<"start.position.x "<<start.position.x<<", start.position.y "<<start.position.y<<", end.position.x "<<end.position.x<<", end.position.y "<<end.position.y<<", x "<<(int)x<<", "<<y<<"\n";
 		}
 	}
 	else
@@ -117,7 +97,6 @@ void NA_GU::n_dda(const NA_Pixel start, const NA_Pixel end)
 			float y=m*x+c;
 			y = y+0.5f;
 			graphics.drawPixel(x, (int) y);
-			if (DEBUG) cout<<"start.position.x "<<start.position.x<<", start.position.y "<<start.position.y<<", end.position.x "<<end.position.x<<", end.position.y "<<end.position.y<<", x "<<x<<", "<<(int)y<<"\n";
 		}
 	}
 }
@@ -145,10 +124,8 @@ void NA_GU::DDA(const NA_Pixel start, const NA_Pixel end)
 void NA_GU::bresenham(const NA_Pixel start, const NA_Pixel end)//i can't get this to work properly, even looked at wikipedia and compared with axls code (made sure not to outright copy)
 {
 	//bresenham
-	if (DEBUG) cout<<"start.position.x "<<start.position.x<<", start.position.y "<<start.position.y<<", end.position.x "<<end.position.x<<", end.position.y "<<end.position.y<<"\n";
 	int dx = end.position.x - start.position.x;
 	int dy = end.position.y - start.position.y;
-	if(DEBUG) cout<<"dx: "<<dx<<", dy: "<<dy<<"\n"; 
 	int p = (2*dy)-dx; //decision parameter
 	if (end.position.x<start.position.x)
 	{
@@ -158,13 +135,11 @@ void NA_GU::bresenham(const NA_Pixel start, const NA_Pixel end)//i can't get thi
 		{
 			if(p<0)
 			{
-				if(DEBUG) cout<<"Move over\n";
 				graphics.drawPixel(x+1,y);
 				p+=2*dy;
 			}
 			else
 			{
-				if(DEBUG) cout<<"Going up\n";
 				graphics.drawPixel(x+1,y+1);
 				p+=(2*dy - 2*dx);
 				y++;
@@ -179,13 +154,11 @@ void NA_GU::bresenham(const NA_Pixel start, const NA_Pixel end)//i can't get thi
 		{
 			if(p<0)
 			{
-				if(DEBUG) cout<<"Move over\n";
 				graphics.drawPixel(x+1,y);
 				p+=2*dy;
 			}
 			else
 			{
-				if(DEBUG) cout<<"Going up\n";
 				graphics.drawPixel(x+1,y+1);
 				p+=(2*dy - 2*dx);
 				y++;
@@ -203,16 +176,12 @@ void NA_GU::drawCirclePoints(const NA_Pixel centre, const NA_Pixel point)
 	graphics.drawPixel(centre.position.x+point.position.x,centre.position.y-point.position.y);
 	graphics.drawPixel(centre.position.x-point.position.x,centre.position.y-point.position.y);
 	
-
-	if(DEBUG) cout<<point.position.x<<", "<<point.position.y<<"\n";
-
 }
 
 void NA_GU::drawCircle(const NA_Pixel centre, const float radius)
 {
 	NA_Pixel point;
 	graphics.setColour(0,1,1);
-	if (DEBUG) graphics.drawPixel(centre.position.x,centre.position.y);
 	graphics.setColour(0,0,0);
 	float inc = 360/(2*maths.PI*radius);
 
@@ -220,7 +189,6 @@ void NA_GU::drawCircle(const NA_Pixel centre, const float radius)
 	{
 		point.position.x = 0.5f+radius*cos(maths.degToRad(i));
 		point.position.y = 0.5f+radius*sin(maths.degToRad(i));
-		if(DEBUG) cout<<"centre: "<<centre.position.x<<", "<<centre.position.y<<"\nradius: "<<radius<<"\n"<<"point.position.x: "<<point.position.x<<"\npoint.position.y: "<<point.position.y<<"\n";
 		this->drawCirclePoints(centre,point);
 		float temp = point.position.x; point.position.x = point.position.y; point.position.y = temp; //swap point x and y
 		this->drawCirclePoints(centre,point);
@@ -273,7 +241,7 @@ void NA_GU::drawTriangle(const NA_Pixel p1, const NA_Pixel p2, const NA_Pixel p3
 {
 	if ((p2.position.y == p1.position.y) || (p2.position.y == p3.position.y) || (p1.position.y == p3.position.y))
 	{
-		cout<<"NA_GU::Draw Triangle: one or more points have same y value and vertical lines are not supported\n";
+		cout<<"NA_GU::Draw Triangle: ERROR: one or more points have same y value and vertical lines are not supported\n";
 		return;
 	}
 	for(int i = p2.position.y; i < p1.position.y; i++)

@@ -22,8 +22,6 @@ struct NA_ClipBoundry
 class NA_GU
 {
 private:
-  static const bool DEBUG = false;
-
 	void n_ds(const NA_Pixel start, const NA_Pixel end);
 	void n_vertical(const NA_Pixel start, const NA_Pixel end);
 	void n_dda(const NA_Pixel start, const NA_Pixel end);
