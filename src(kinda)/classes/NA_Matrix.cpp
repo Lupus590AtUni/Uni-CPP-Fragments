@@ -81,3 +81,98 @@ void NA_Matrix::correctW()
 	
 	matrix[3][3] = 1.0f;
 }
+
+
+
+
+
+//from maths lib
+#pragma region matrix
+//
+//NA_Matrix NA_MathsLib::getIDMatrix()
+//{
+//	NA_Matrix temp;
+//	return temp;
+//}
+//
+//NA_Matrix NA_MathsLib::getTranslateMatrix(NA_Vector v)
+//{
+//	NA_Matrix temp;
+//	temp.matrix[0][3] = v.x;
+//	temp.matrix[1][3] = v.y;
+//	temp.matrix[2][3] = v.z;
+//	return temp;
+//}
+//
+//NA_Matrix NA_MathsLib::getTranslateMatrix(float x, float y, float z)
+//{
+//	NA_Vector tempV(x,y,z,1.0f);
+//	NA_Matrix tempM;
+//	tempM = getTranslateMatrix(tempV);
+//	return tempM; //return temp matrix
+//}
+//
+//NA_Matrix NA_MathsLib::getScaleMatrix(float s)
+//{
+//	NA_Matrix temp;
+//	temp.matrix[3][3] = 1/s;
+//	return temp;
+//}
+//
+//NA_Matrix NA_MathsLib::getRotateXMatrix(float d)
+//{
+//	NA_Matrix temp;
+//	float cosD = cos(d);
+//	float sinD = sin(d);
+//	temp.matrix[1][1] = cosD;
+//	temp.matrix[2][2] = cosD;
+//	temp.matrix[1][2] = -sinD;
+//	temp.matrix[2][1] = sinD;
+//	return temp;
+//}
+//
+//NA_Matrix NA_MathsLib::getRotateYMatrix(float d)
+//{
+//	NA_Matrix temp;
+//	float cosD = cos(d);
+//	float sinD = sin(d);
+//	temp.matrix[0][0] = cosD;
+//	temp.matrix[2][2] = cosD;
+//	temp.matrix[0][2] = sinD;
+//	temp.matrix[2][0] = -sinD;
+//	return temp;
+//}
+//
+//NA_Matrix NA_MathsLib::getRotateZMatrix(float d)
+//{
+//	NA_Matrix temp;
+//	float cosD = cos(d);
+//	float sinD = sin(d);
+//	temp.matrix[0][0] = cosD;
+//	temp.matrix[1][1] = cosD;
+//	temp.matrix[1][0] = sinD;
+//	temp.matrix[0][1] = -sinD;
+//	return temp;
+//}
+//	
+//NA_Matrix NA_MathsLib::getShearXMatrix(float s)
+//{
+//	NA_Matrix temp;
+//	temp.matrix[0][0] = s;
+//	return temp;
+//}
+//
+//NA_Matrix NA_MathsLib::getShearYMatrix(float s)
+//{
+//	NA_Matrix temp;
+//	temp.matrix[1][1] = s;
+//	return temp;
+//}
+//
+//NA_Matrix NA_MathsLib::getShearZMatrix(float s)
+//{
+//	NA_Matrix temp;
+//	temp.matrix[2][2] = s;
+//	return temp;
+//}
+//
