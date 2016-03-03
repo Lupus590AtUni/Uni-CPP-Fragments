@@ -1,2 +1,3 @@
 Cleanup these files
-Move matrix stuff out of MathsLib
+Move matrix stuff out of MathsLib - perhaps as an enum which is passed into the contructor of matrix
+remove my global header
