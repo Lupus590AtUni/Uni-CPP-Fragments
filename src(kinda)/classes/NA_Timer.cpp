@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "NA_Timer.h"
 #include <time.h>
 

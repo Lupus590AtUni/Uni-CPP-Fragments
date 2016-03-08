@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "NA_GU.h"
 
 extern cRenderClass graphics;

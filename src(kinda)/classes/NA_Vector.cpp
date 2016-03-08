@@ -1,7 +1,6 @@
 //adapted from 1st year maths assignment (lecturer: Gordan Dickers)
-#include "NA_GlobalsAndIncludes.h"
 #include "NA_Vector.h"
-#include <math.h> //for sqrt in normalise
+#include <math.h> //for sqrt in normalise - should redo to use custom math lib which has a lookup table for this
 	//construct
 NA_Vector::NA_Vector(void)
 {

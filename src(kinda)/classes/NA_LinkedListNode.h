@@ -1,5 +1,4 @@
 #pragma once
-#include "NA_GlobalsAndIncludes.h"
 template <class _template> class NA_LinkedListNode //http://www.cprogramming.com/tutorial/templates.html
 {
 public:

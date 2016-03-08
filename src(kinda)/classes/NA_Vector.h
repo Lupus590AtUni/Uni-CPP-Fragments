@@ -1,6 +1,5 @@
 //adapted from 1st year maths assignment (lecturer: Gordan Dickers)
 #pragma once
-#include "NA_GlobalsAndIncludes.h"
 class NA_Vector
 
 {

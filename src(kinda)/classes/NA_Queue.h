@@ -1,5 +1,4 @@
 #pragma once
-#include "NA_GlobalsAndIncludes.h"
 #include "NA_LinkedListNode.h"
 template <class _template> class NA_Queue
 {

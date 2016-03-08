@@ -1,7 +1,4 @@
 #pragma once
-#include "NA_GlobalsAndIncludes.h"
-class NA_Vector;
-class NA_Matrix;
 class NA_MathsLib
 {
 private:
@@ -33,21 +30,6 @@ public:
 	float sin(float);
 	float cos(float);
 	float tan(float);
-
-
-	//need to rename these, get is misleading, generate/make would be better
-	NA_Matrix getIDMatrix();
-	NA_Matrix getTranslateMatrix(NA_Vector);
-	NA_Matrix getTranslateMatrix(float,float,float);
-	NA_Matrix getScaleMatrix(float);
-
-	NA_Matrix getRotateXMatrix(float);
-	NA_Matrix getRotateYMatrix(float);
-	NA_Matrix getRotateZMatrix(float);
-	
-	NA_Matrix getShearXMatrix(float);
-	NA_Matrix getShearYMatrix(float);
-	NA_Matrix getShearZMatrix(float);
 
 	//returns true if the two floats are within 0.001 of each other
 	bool aboutEqual(float v1, float v2, float epsilon = 0.001f);
