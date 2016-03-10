@@ -7,7 +7,7 @@ private:
 	unsigned int start;
 public:
 	NA_Timer(void);
-	NA_Timer(int d);
+	explicit NA_Timer(int d);
 	~NA_Timer(void);
 	void setDuration(int d);
 	bool hasElapsed();

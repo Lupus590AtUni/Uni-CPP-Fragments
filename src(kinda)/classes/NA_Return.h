@@ -17,6 +17,7 @@ public:
 
 template <class _template>NA_Return<_template>::NA_Return(void)
 {
+  success = false;
 }
 
 
