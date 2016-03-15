@@ -2,17 +2,9 @@
 #include "NA_Vector.h"
 #include <math.h> //for sqrt in normalise - should redo to use custom math lib which has a lookup table for this
 	//construct
-NA_Vector::NA_Vector(void)
-{
-  debug = false;
-	x= 0;
-	y= 0;
-	z= 0;
-	w= 1;
-}
-NA_Vector::NA_Vector(float myx, float myy, float myz, float myw)
+
+NA_Vector::NA_Vector(float myx=0.0f, float myy=0.0f, float myz=0.0f, float myw=1.0f)
 { 
-  debug = false;
 	x= myx;
 	y= myy;
 	z= myz;
@@ -51,6 +43,11 @@ float NA_Vector::dist(NA_Vector & v1)
 	yCom = y - v1.y;
 	zCom = z - v1.z;
 	return sqrt(xCom*xCom + yCom*yCom + zCom*zCom);
+}
+
+float NA_Vector::dot(NA_Vector & v1)
+{
+  return x*v1.x + y*v1.y + z*v1.z + w*v1.w;
 }
 
 void NA_Vector::correctW()

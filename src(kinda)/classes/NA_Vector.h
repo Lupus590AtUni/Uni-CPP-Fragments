@@ -1,7 +1,7 @@
 //adapted from 1st year maths assignment (lecturer: Gordan Dickers)
 #pragma once
-class NA_Vector
 
+class NA_Vector
 {
 public:
 
@@ -12,6 +12,7 @@ public:
 	void Add(NA_Vector & v1);
 	void normalise(void);
 	float dist(NA_Vector & v1);
+  float NA_Vector::dot(NA_Vector & v1)
 	void correctW();
 
 	//were private, but gets and sets slowdown realtime systems (such as games)
