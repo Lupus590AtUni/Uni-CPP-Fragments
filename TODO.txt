@@ -1,1 +1,3 @@
 Cleanup these files
+
+w should be 0 in vectors
