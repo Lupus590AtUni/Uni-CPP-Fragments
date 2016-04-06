@@ -13,8 +13,7 @@ private:
 	int degToLookupIndex(float);
 
 public:
-	void seedDice();
-	void seedDice(unsigned int seed);
+	void seedDice(unsigned int seed  = time(NULL));
 
 	static const float PI;//floats must be initialised in cpp
 	NA_MathsLib(void);

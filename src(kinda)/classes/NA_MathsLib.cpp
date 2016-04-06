@@ -27,7 +27,7 @@ NA_MathsLib::~NA_MathsLib(void)
 
 
 
-void NA_MathsLib::seedDice(unsigned int seed = time(NULL))
+void NA_MathsLib::seedDice(unsigned int seed)
 {
 	srand(seed);
 }
