@@ -22,7 +22,7 @@ NA_Matrix::NA_Matrix(void)
 	}
 }
 
-NA_Matrix::NA_Matrix(int type, float x, float y=0.0f, float z=0.0f) //this may look ugly but using it should be very plesent
+NA_Matrix::NA_Matrix(int type, float x, float y=0.0f, float z=0.0f) //this may look ugly but using it should be very plesent to use
 {
   switch(type)
   {
