@@ -3,7 +3,7 @@
 #include <math.h> //for sqrt in normalise - should redo to use custom math lib which has a lookup table for this
 	//construct
 
-NA_Vector::NA_Vector(float myx=0.0f, float myy=0.0f, float myz=0.0f, float myw=0.0f)
+NA_Vector::NA_Vector(float x, float y, float z, float w)
 { 
 	x= myx;
 	y= myy;

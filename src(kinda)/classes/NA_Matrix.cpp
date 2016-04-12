@@ -22,25 +22,28 @@ NA_Matrix::NA_Matrix(void)
 	}
 }
 
-NA_Matrix::NA_Matrix(int type, float x, float y=0.0f, float z=0.0f) //this may look ugly but using it should be very plesent to use
+NA_Matrix::NA_Matrix(types type, float x, float y, float z) //this may look ugly but using it should be very plesent to use
 {
+  //start with identity matrix other matrices bild off this
+  for(int i = 0; i<4;i++)
+  {
+    for(int j = 0;j<4;j++)
+    {
+      if(i==j)
+      {
+        matrix[i][j] = 1.0f;
+      }
+      else
+      {
+        matrix[i][j] = 0.0f;
+      }
+    }
+  }
+  
   switch(type)
   {
     case types.identity:
-      for(int i = 0; i<4;i++)
-      {
-        for(int j = 0;j<4;j++)
-        {
-          if(i==j)
-          {
-            matrix[i][j] = 1.0f;
-          }
-          else
-          {
-            matrix[i][j] = 0.0f;
-          }
-        }
-      }
+      //already made
       break;
     case types.translate:
       matrix[0][3] = x;
@@ -85,7 +88,7 @@ NA_Matrix::NA_Matrix(int type, float x, float y=0.0f, float z=0.0f) //this may l
       break;
     
     default:
-      cout<<"NA_Matrix::NA_Matrix - Default used in if statment\n";
+      cout<<"NA_Matrix::NA_Matrix - Default used in switch statment\n";
   }
 }
 

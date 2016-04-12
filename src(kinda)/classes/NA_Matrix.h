@@ -4,14 +4,14 @@ class NA_Matrix
 {
 public:
 
-  enum types { identity = 0, translate, rotateX, rotateY, rotateZ, scale, shearX, shearY, shearZ};
+  static enum types { identity = 0, translate, rotateX, rotateY, rotateZ, scale, shearX, shearY, shearZ};
 
 	float matrix[4][4];//was private but gets and sets slow things down
 
 	NA_Matrix(void);
 	~NA_Matrix(void);
   
-  NA_Matrix(types type, int x, int y=0, int z=0);
+  NA_Matrix(types type, int x=0, int y=0, int z=0);
 
 	void correctW();
 	NA_Matrix transpose();//inverse

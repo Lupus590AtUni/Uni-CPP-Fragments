@@ -6,7 +6,7 @@ class NA_Vector
 public:
 
 	//construct
-	NA_Vector(float x, float y, float z, float w);
+	NA_Vector(float x=0.0f, float y=0.0f, float z=0.0f, float w=0.0f);
 	NA_Vector(void);
 	void Scale(float s);
 	void Add(NA_Vector & v1);
