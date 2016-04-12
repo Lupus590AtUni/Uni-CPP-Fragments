@@ -12,8 +12,8 @@ public:
 	void Add(NA_Vector & v1);
 	void normalise(void);
 	float dist(NA_Vector & v1);
-  float dot(NA_Vector & v1)
-	//void correctW();
+  float dot(NA_Vector & v1);
+  NA_Vector* twoPointsIntoVector(NA_Vector & startPoint, NA_Vector & endPoint);
 
 	//were private, but gets and sets slowdown realtime systems (such as games)
 	float x;
