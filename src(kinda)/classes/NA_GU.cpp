@@ -119,6 +119,46 @@ void NA_GU::DDA(const NA_Pixel start, const NA_Pixel end)
 	}
 }
 
+void NA_GU::DDA(const sVec2f start, const sVec2f end)//BUG: err
+{
+	//http://www.tutorialspoint.com/computer_graphics/line_generation_algorithm.htm
+
+	sVec2f delta = {end.x - start.x, end.y - start.y};
+	sVec2f absDelta = { abs(delta.x), abs(delta.y) };
+
+	int steps;
+
+	if(absDelta.x > absDelta.y)
+	{
+		steps = absDelta.x;
+	}
+	else
+	{
+		steps = absDelta.y;
+	}
+
+	sVec2f inc = {delta.x/(float) steps, delta.y/(float) steps};
+
+	int x = (int) start.x;
+	int y = (int) start.y;
+
+	for(int i=0; i<steps; i++)
+	{
+		graphics.drawPixel(x,y);
+		x += inc.x;
+		y += inc.y;
+	}
+
+
+
+
+}
+
+void NA_GU::drawLine(const sVec2f start, const sVec2f end)
+{
+	DDA(start, end);
+}
+
 
 void NA_GU::bresenham(const NA_Pixel start, const NA_Pixel end)//i can't get this to work properly, even looked at wikipedia and compared with axls code (made sure not to outright copy)
 {
