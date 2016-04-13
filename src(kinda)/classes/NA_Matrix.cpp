@@ -22,55 +22,59 @@ NA_Matrix::NA_Matrix(types type, float x, float y, float z) //this may look ugly
     }
   }
   
+  //defining things in switches needs to be a thing
+  float cosD;
+  float sinD;
+
   switch(type)
   {
-    case types.identity:
+    case identity:
       //already made
       break;
-    case types.translate:
+    case translate:
       matrix[0][3] = x;
       matrix[1][3] = y;
       matrix[2][3] = z;
       break;
-    case types.rotateX:
-      float cosD = maths.cos(x);
-      float sinD = maths.sin(x);
+    case rotateX:
+      cosD = cosf(x);
+      sinD = sinf(x);
       matrix[1][1] = cosD;
       matrix[2][2] = cosD;
       matrix[1][2] = -sinD;
       matrix[2][1] = sinD;
       break;
-    case types.rotateY:
-      float cosD = maths.cos(x);
-      float sinD = maths.sin(x);
+    case rotateY:
+      cosD = cosf(x);
+      sinD = sinf(x);
       matrix[0][0] = cosD;
       matrix[2][2] = cosD;
       matrix[0][2] = -sinD;
       matrix[2][0] = sinD;
       break;
-    case types.rotateZ:
-      float cosD = maths.cos(x);
-      float sinD = maths.sin(x);
+    case rotateZ:
+      cosD = cosf(x);
+      sinD = sinf(x);
       matrix[0][0] = cosD;
       matrix[1][1] = cosD;
       matrix[1][0] = -sinD;
       matrix[0][1] = sinD;
       break;
-    case types.scale:
+    case scale:
       matrix[3][3] = 1/x;
       break;
-    case types.shearX:
+    case shearX:
       matrix[0][0] = x;
       break;
-    case types.shearY:
+    case shearY:
       matrix[1][1] = x;
       break;
-    case types.shearZ:
+    case shearZ:
       matrix[2][2] = x;
       break;
     
     default:
-      cout<<"NA_Matrix::NA_Matrix - Default used in switch statment\n";
+      cout<<"NA_Matrix::NA_Matrix - Default used in switch statement\n";
   }
 }
 
@@ -118,7 +122,6 @@ NA_Vector NA_Matrix::matrixXvector(NA_Vector v)
 	tW = v.x*matrix[3][0]+v.y*matrix[3][1]+v.z*matrix[3][2]+v.w*matrix[3][3];
 
 	NA_Vector temp(tX,tY,tZ,tW);
-	temp.correctW();
 	return temp;
 }
 
