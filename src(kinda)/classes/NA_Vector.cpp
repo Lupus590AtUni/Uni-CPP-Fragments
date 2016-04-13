@@ -1,14 +1,15 @@
 //adapted from 1st year maths assignment (lecturer: Gordan Dickers)
 #include "NA_Vector.h"
+#include "stdafx.h"
 #include <math.h> //for sqrt in normalise - should redo to use custom math lib which has a lookup table for this
 	//construct
 
 NA_Vector::NA_Vector(float x, float y, float z, float w)
 { 
-	x= myx;
-	y= myy;
-	z= myz;
-	w= myw;
+	this->x = x;
+	this->y = y;
+	this->z = z;
+	this->w = w;
 }
 
 void NA_Vector::Scale(float s)
@@ -51,12 +52,12 @@ float NA_Vector::dot(NA_Vector & v1)
   return x*v1.x + y*v1.y + z*v1.z + w*v1.w;
 }
 
-NA_Vector* NA_Vector::twoPointsIntoVector(NA_Vector* startPoint, NA_Vector* endPoint)
+NA_Vector* NA_Vector::twoPointsIntoVector(NA_Vector &startPoint, NA_Vector &endPoint)
 {
 	NA_Vector* v = new NA_Vector;
-	v->x = (endPoint->x - startPoint->x);
-	v->y = (endPoint->y - startPoint->y);
-	v->z = (endPoint->z - startPoint->z);
-	v->w = (endPoint->w - startPoint->w);
+	v->x = (endPoint.x - startPoint.x);
+	v->y = (endPoint.y - startPoint.y);
+	v->z = (endPoint.z - startPoint.z);
+	v->w = (endPoint.w - startPoint.w);
 	return v;
 }

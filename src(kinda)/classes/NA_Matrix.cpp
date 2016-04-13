@@ -1,30 +1,12 @@
+#include "stdafx.h"
 #include "NA_Matrix.h"
 #include "NA_Vector.h"
 #include <iostream>
 using std::cout;
 
-NA_Matrix::NA_Matrix(void)
+NA_Matrix::NA_Matrix(types type, float x, float y, float z) //this may look ugly but using it should be very pleasant to use
 {
-	//make identity matrix
-	for(int i = 0; i<4;i++)
-	{
-		for(int j = 0;j<4;j++)
-		{
-			if(i==j)
-			{
-				matrix[i][j] = 1.0f;
-			}
-			else
-			{
-				matrix[i][j] = 0.0f;
-			}
-		}
-	}
-}
-
-NA_Matrix::NA_Matrix(types type, float x, float y, float z) //this may look ugly but using it should be very plesent to use
-{
-  //start with identity matrix other matrices bild off this
+  //start with identity matrix other matrices build off this
   for(int i = 0; i<4;i++)
   {
     for(int j = 0;j<4;j++)
