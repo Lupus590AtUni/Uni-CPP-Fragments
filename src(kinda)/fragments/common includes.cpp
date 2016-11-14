@@ -16,4 +16,3 @@ using std::string;//from string
 //#include <stdio.h>//printf() which is also given in iostream
 //#include <math.h>
 //#include <time.h>//time()
-//#include <random>//rand() generate a random number, usage: int var = rand() % 100 //range = 0-99 (I have made a wrapper method for this in my maths class)
