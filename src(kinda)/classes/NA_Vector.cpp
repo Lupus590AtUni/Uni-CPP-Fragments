@@ -12,6 +12,14 @@ NA_Vector::NA_Vector(float x, float y, float z, float w)
 	this->w = w;
 }
 
+NA_Vector::NA_Vector(const NA_Vector & copy)
+{
+	this->x = copy.x;
+	this->y = copy.y;
+	this->z = copy.z;
+	this->w = copy.w;
+}
+
 void NA_Vector::Scale(float s)
 {
 	x= s*x;
