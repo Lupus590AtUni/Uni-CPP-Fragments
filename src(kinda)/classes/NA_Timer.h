@@ -2,14 +2,14 @@
 
 class NA_Timer
 {
-private:
-	unsigned int duration;
+//private:
+public:
+	double duration;
 	unsigned int start;
 public:
-	NA_Timer(void);
-	explicit NA_Timer(int d);
+	explicit NA_Timer(double d = 0.0);
 	~NA_Timer(void);
-	void setDuration(int d);
+	void setDuration(double d);
 	bool hasElapsed();
 	void restart();
 	void wait(); //pause until timer elapses
