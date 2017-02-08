@@ -4,3 +4,8 @@ use operators
 
 rotating vectors
   look at convex hull code
+
+  
+namespace everything?
+
+rewrite vector and proably other maths stuff
