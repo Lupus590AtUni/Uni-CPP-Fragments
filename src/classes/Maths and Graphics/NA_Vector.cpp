@@ -1,6 +1,7 @@
 //adapted from 1st year maths assignment (lecturer: Gordan Dickers)
-#include "NA_Vector.h"
 #include "stdafx.h"
+#include "NA_Vector.h"
+
 #include <math.h> //for sqrt in normalise - should redo to use custom math lib which has a lookup table for this
 	//construct
 
@@ -18,6 +19,14 @@ NA_Vector::NA_Vector(const NA_Vector & copy)
 	this->y = copy.y;
 	this->z = copy.z;
 	this->w = copy.w;
+}
+
+NA_Vector::NA_Vector(NA_Vector *const copy)
+{
+	this->x = copy->x;
+	this->y = copy->y;
+	this->z = copy->z;
+	this->w = copy->w;
 }
 
 void NA_Vector::scale(float s)
@@ -39,11 +48,12 @@ void NA_Vector::add(NA_Vector & v1)
 
 void NA_Vector::normalise(void)
 {
-	float l = length();
-	x = x/l;
-	y = y/l;
-	z = z/l;
-	//correctW();
+	NA_Vector temp = NA_Vector::normalise(NA_Vector(this));
+	x = temp.x;
+	y = temp.y;
+	z = temp.z;
+	w = temp.w;
+	//delete temp;
 }
 
 float NA_Vector::dist(NA_Vector & v1)
@@ -73,4 +83,15 @@ NA_Vector NA_Vector::twoPointsIntoVector(NA_Vector &startPoint, NA_Vector &endPo
 	v.z = (endPoint.z - startPoint.z);
 	v.w = (endPoint.w - startPoint.w);
 	return v;
+}
+
+float NA_Vector::clockwiseAngle(NA_Vector & v1)
+{
+	//http://stackoverflow.com/questions/14066933/direct-way-of-computing-clockwise-clockwiseAngle-between-2-vectors/16544330#16544330
+
+	float lenSq1, lenSq2;
+	lenSq1 = x*x + y*y + z*z +w*w;
+	lenSq2 = v1.x*v1.x + v1.y*v1.y + v1.z*v1.z + v1.w*v1.w;
+	
+	return acos(dot(v1) / sqrt(lenSq1 * lenSq2));
 }
