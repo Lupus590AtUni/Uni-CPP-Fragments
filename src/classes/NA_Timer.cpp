@@ -1,6 +1,5 @@
 #include "NA_Timer.h"
 #include <time.h>
-#include "stdafx.h"
 
 
 NA_Timer::NA_Timer(double d)
@@ -31,7 +30,7 @@ void NA_Timer::restart()
 	start = time(NULL);
 }
 
-void NA_Timer::wait()
+void NA_Timer::waitForElapse()
 {
 	while (!hasElapsed())
 	{

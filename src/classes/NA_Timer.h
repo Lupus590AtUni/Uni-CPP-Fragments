@@ -12,6 +12,6 @@ public:
 	void setDuration(double d);
 	bool hasElapsed();
 	void restart();
-	void wait(); //pause until timer elapses
+	void waitForElapse(); //pause until timer elapses
 };
 
