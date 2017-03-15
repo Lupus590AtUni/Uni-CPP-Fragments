@@ -39,7 +39,7 @@ void NA_Timer::restart()
 	start = time(NULL);
 }
 
-void NA_Timer::wait()
+void NA_Timer::waitForElapse()
 {
 	while (!hasElapsed())
 	{
