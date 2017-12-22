@@ -17,8 +17,8 @@ private:
 public:
 	NA_Deck();
 	~NA_Deck();
-	void addCard(const string id, const unsigned int count = 1); // count can be increased to have more of the same card
-	string drawCard();
+	void addCard(const string id, const unsigned int count = 1); // count can be increased to have more of the same card, doesn't add a card if count is 0
+	string drawCard(); // returns empty string if deck is empty
 	unsigned int size();
 };
 
